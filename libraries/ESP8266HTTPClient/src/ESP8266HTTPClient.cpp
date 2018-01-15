@@ -65,6 +65,11 @@ public:
 
     bool verify(WiFiClient& client, const char* host) override
     {
+		if (_fingerprint == "*")
+        {
+            return true;
+        }
+		
         auto wcs = static_cast<WiFiClientSecure&>(client);
         return wcs.verify(_fingerprint.c_str(), host);
     }
