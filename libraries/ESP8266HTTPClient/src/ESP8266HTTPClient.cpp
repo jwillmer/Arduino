@@ -130,7 +130,7 @@ bool HTTPClient::begin(String url)
     _transportTraits.reset(nullptr);
     _port = 80;
     if (!beginInternal(url, "http")) {
-        return false;
+        return begin(url, "*");
     }
     _transportTraits = TransportTraitsPtr(new TransportTraits());
     return true;
